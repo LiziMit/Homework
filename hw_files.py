@@ -1,4 +1,3 @@
-from os import name
 from pprint import pprint
 with open ("recipes.txt", "r", encoding="utf-8") as file:
     cook_book = {}
