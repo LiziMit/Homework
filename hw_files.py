@@ -20,14 +20,22 @@ with open ("recipes.txt", "r", encoding="utf-8") as file:
 def get_shoy_dishes(dic, dish, persons):
     cook = {}
     for i in dish:
-        print(i)
+        # print(i)
         var = dic[i]
         for v in var:
-            cook[v['ingredient_name']] = {'quantity': int(v['quantity']) * persons, 'measure': v['measure']}
-    
+            # print(v)
+            if v['ingredient_name'] in cook:
+                cook[v['ingredient_name']] = {'quantity': (int(v['quantity']) * persons) + int(v['quantity']), 'measure': v['measure']}
+                # print(0)
+            else:
+                cook[v['ingredient_name']] = {'quantity': int(v['quantity']) * persons, 'measure': v['measure']}
+                # print(1)    
     pprint(cook)       
 
-get_shoy_dishes(cook_book, ['Запеченный картофель', 'Омлет'], 7)
+# get_shoy_dishes(cook_book, ['Запеченный картофель', 'Омлет'], 2)
+# get_shoy_dishes(cook_book, ['Омлет', 'Омлет'], 1)
+# get_shoy_dishes(cook_book, ['Омлет'], 2)
+# get_shoy_dishes(cook_book, ['Фахитос', 'Фахитос'], 1)
 
 
 
